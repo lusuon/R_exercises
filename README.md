@@ -3,62 +3,89 @@ A repo for storing R exercises code
 
 week1 quiz
 
-返回
-Week 1 Quiz
+第 11 个问题
+Use the Week 1 Quiz Data Set to answer questions 11-20.
 
-第 10 个问题
-错误
-0/1 分
-10. 第 10 个问题
-Suppose I have a vector x <- c(3, 5, 1, 10, 12, 6) and I want to set all elements of this vector that are less than 6 to be equal to zero. What R code achieves this? Select all that apply.
+In the dataset provided for this Quiz, what are the column names of the dataset?
 
 
-x[x != 6] <- 0
-
-未选择的是正确的 
-
-x[x == 0] <- 6
-
-未选择的是正确的 
-
-x[x < 6] <- 0
+Ozone, Solar.R, Wind, Temp, Month, Day
 
 正确 
-You can create a logical vector with the expression x < 6 and then use the [ operator to subset the original vector x.
+You can get the column names of a data frame with the `names()' function.
 
 
-x[x >= 6] <- 0
+Month, Day, Temp, Wind
 
-未选择的是正确的 
 
-x[x > 6] <- 0
+1, 2, 3, 4, 5, 6
 
-未选择的是正确的 
 
-x[x < 6] == 0
+Ozone, Solar.R, Wind
 
-未选择的是正确的 
+第 12 个问题
+正确
+1/1 分
+12. 第 12 个问题
+Extract the first 2 rows of the data frame and print them to the console. What does the output look like?
 
-x[x > 0] <- 6
 
-未选择的是正确的 
 
-x[x %in% 1:5] <- 0
+
 
-这应该被选择 
 
-x[x == 6] <- 0
+
+正确 
+You can extract the first two rows using the [ operator and an integer sequence to index the rows.
 
-未选择的是正确的 
 
-x[x <= 5] <- 0
 
-这应该被选择 
+
 
-x[x == 0] < 6
 
-未选择的是正确的 
+
+第 13 个问题
+正确
+1/1 分
+13. 第 13 个问题
+How many observations (i.e. rows) are in this data frame?
 
+
+129
+
+
+153
+
+正确 
+You can use the `nrows()' function to compute the number of rows in a data frame.
+
+
+160
+
+
+45
+
+第 14 个问题
+正确
+1/1 分
+14. 第 14 个问题
+Extract the last 2 rows of the data frame and print them to the console. What does the output look like?
+
+
+
+
+正确 
+The `tail()' function is an easy way to extract the last few elements of an R object.
+
+
+
+
+
+
+
+
+
+
 第 15 个问题
 正确
 1/1 分
@@ -180,6 +207,3 @@ What was the maximum ozone value in the month of May (i.e. Month is equal to 5)?
 
 
 100
-
-
-
