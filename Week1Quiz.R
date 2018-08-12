@@ -11,6 +11,8 @@ length(badOzone)
 # [1] 59
 
 #What is the mean of the Ozone column in this dataset? Exclude missing values (coded as NA) from this calculation.
+#取非NA子集示例：y <- x[!is.na(x)]
+
 goodOzoneData<-hw1_data[complete.cases(hw1_data$Ozone),]
 mean(goodOzoneData$Ozone)
 
