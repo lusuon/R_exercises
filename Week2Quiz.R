@@ -42,36 +42,29 @@ complete<- function(directory='./CSV/specdata',id= 1:332){
 
 corr<-function(directory='./CSV/specdata',threshold= 0){
   filted_data<-subset(complete(),complete()$nobs>threshold)
-  print(filted_data)
-  for(i in 1:nrow(filted_data)){
-    #get ID of the line,to go deeper,should read the origin csv to find data.
-    line<-filted_data[i,]
-    file_location<-paste(directory,'/',trans(line$'id'),'.csv',sep = '')
-    temp_csv<-read.csv(file_location)
-    
-    
-    #get the data whose row is no NA
-    
-    complete_condition<-is.na(temp_csv$sulfate)==FALSE & is.na(temp_csv$nitrate) ==FALSE
-    temp_complete<-subset(temp_csv,complete_condition) 
-    line_sulfate<-temp_complete['sulfate']
-    line_nitrate<-temp_complete['nitrate']
-    cor(line_nitrate,line_sulfate)#The order does not change the result
-    
-    
-    #How about use the na.rm?
-    
-    
-    
-    #print(line_sulfate<-temp_complete['sulfate'])
-    #print(line_nitrate<-temp_complete['nitrate'])
-    
-    
-    
+  cors<-numeric()
+  if(nrow(filted_data)!=0){#if the value of threshold too high will get a empty dataframe in this program
+    for(i in 1:nrow(filted_data)){
+      #get ID of the line,to go deeper,should read the origin csv to find data.
+      line<-filted_data[i,]
+      file_location<-paste(directory,'/',trans(line$'id'),'.csv',sep = '')
+      #print(file_location)
+      temp_csv<-read.csv(file_location)
+      
+      
+      #get the data whose row is no NA
+      
+      complete_condition<-is.na(temp_csv$sulfate)==FALSE & is.na(temp_csv$nitrate) ==FALSE
+      temp_complete<-subset(temp_csv,complete_condition) 
+      line_sulfate<-temp_complete['sulfate']
+      line_nitrate<-temp_complete['nitrate']
+      cor_element<-cor(line_nitrate,line_sulfate)# cor() work fine;The attribute order does not change the result
+      print(class(cor_element[1,1]))
+      cors<-append(cors,cor_element[1,1])#If you want to add something into a vector ,remember to use'<-'
+      #How about use the attribute na.rm?
+    }
   }
-    
-  
-  #print(cor(i["sulfate"],i["nitrate"]))
+  cors
 }
   
 
